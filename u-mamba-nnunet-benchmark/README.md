@@ -55,18 +55,25 @@ These scripts are typically meant to be executed as standalone scripts (they par
 
 ## Minimal Command Templates
 
+### Configuration names (2D and 3D)
+This repo includes both 2D and 3D pipelines. Common configuration names you may use are:
+- `2d`
+- `3d_fullres`
+- `3d_lowres` (if your plans include it)
+- `3d_cascade_fullres` (if you are using a cascade)
+
 ### Training
 ```bash
-nnUNetv2_train DATASET_ID 2d all -tr nnUNetTrainer
-nnUNetv2_train DATASET_ID 2d all -tr nnUNetTrainerUMambaBot
-nnUNetv2_train DATASET_ID 2d all -tr nnUNetTrainerUMambaEnc
+nnUNetv2_train DATASET_ID <CONFIG> all -tr nnUNetTrainer
+nnUNetv2_train DATASET_ID <CONFIG> all -tr nnUNetTrainerUMambaBot
+nnUNetv2_train DATASET_ID <CONFIG> all -tr nnUNetTrainerUMambaEnc
 ```
 
 ### Inference
 ```bash
-nnUNetv2_predict -i INPUT_FOLDER -o OUTPUT_FOLDER -d DATASET_ID -c 2d -tr nnUNetTrainer
-nnUNetv2_predict -i INPUT_FOLDER -o OUTPUT_FOLDER -d DATASET_ID -c 2d -tr nnUNetTrainerUMambaBot
-nnUNetv2_predict -i INPUT_FOLDER -o OUTPUT_FOLDER -d DATASET_ID -c 2d -tr nnUNetTrainerUMambaEnc
+nnUNetv2_predict -i INPUT_FOLDER -o OUTPUT_FOLDER -d DATASET_ID -c <CONFIG> -tr nnUNetTrainer
+nnUNetv2_predict -i INPUT_FOLDER -o OUTPUT_FOLDER -d DATASET_ID -c <CONFIG> -tr nnUNetTrainerUMambaBot
+nnUNetv2_predict -i INPUT_FOLDER -o OUTPUT_FOLDER -d DATASET_ID -c <CONFIG> -tr nnUNetTrainerUMambaEnc
 ```
 
 ### Evaluation (nnUNetv2 built-in)
